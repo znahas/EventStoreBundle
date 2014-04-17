@@ -24,12 +24,7 @@ class Store extends BaseEventListener
     {
         $data = $this->serializer->serialize($event->getArguments(), 'json');
 
-        $token = $this->security->getToken();
-        if ($token) {
-            $user = $token->getUser()->getUsername();
-        } else {
-            $user = "cli";
-        }
+        $user = 'api';
 
         $elem = new Event();
         $elem->setName($event->getName());
