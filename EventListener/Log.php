@@ -9,12 +9,8 @@ class Log extends BaseEventListener
 {
     public function onEvent(GenericEvent $event)
     {
-        $token = $this->security->getToken();
-        if ($token && $token->getUser()) {
-            $user = $token->getUser()->getUsername();
-        } else {
-            $user = "cli";
-        }
+        $user = 'api';
+
         $this->logger->info("Event: [" . $user . "] " . $event->getName());
     }
 }
