@@ -10,7 +10,7 @@ class Log extends BaseEventListener
     public function onEvent(GenericEvent $event)
     {
         $token = $this->security->getToken();
-        if ($token) {
+        if ($token && $token->getUser()) {
             $user = $token->getUser()->getUsername();
         } else {
             $user = "cli";
